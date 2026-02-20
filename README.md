@@ -2,6 +2,8 @@
 
 Quick start: [docs/quickstart.md](docs/quickstart.md)
 
+Benchmark guide: [docs/benchmark.md](docs/benchmark.md)
+
 License: MIT (see [LICENSE](LICENSE))
 
 This project helps malware analysts quickly answer:
