@@ -34,16 +34,16 @@ Then compare two graphs by exhaustive contiguous window matching.
 
 ```mermaid
 flowchart LR
-    A[ELF Binary A] --> B[objdump -d]
-    C[ELF Binary B] --> D[objdump -d]
-    B --> E[Filter conditional jumps]
-    D --> F[Filter conditional jumps]
-    E --> G[Build Graph A<br/>nodes + seq/jmp edges]
-    F --> H[Build Graph B<br/>nodes + seq/jmp edges]
-    G --> I[Window fingerprinting]
+  A["ELF Binary A"] --> B["objdump -d"]
+  C["ELF Binary B"] --> D["objdump -d"]
+  B --> E["Filter conditional jumps"]
+  D --> F["Filter conditional jumps"]
+  E --> G["Build Graph A: nodes + seq/jmp edges"]
+  F --> H["Build Graph B: nodes + seq/jmp edges"]
+  G --> I["Window fingerprinting"]
     H --> I
-    I --> J[Exhaustive overlap search]
-    J --> K[best_match_size + fit ratio + matches[]]
+  I --> J["Exhaustive overlap search"]
+  J --> K["best_match_size + fit_ratio + matches_array"]
 ```
 
 ## Multiple graph isomorphism (plural matches)
@@ -63,13 +63,13 @@ Conceptually:
 
 ```mermaid
 graph TD
-    A[Graph A] --> A1[Shared block X]
-    A --> A2[Unique block A]
-    A --> A3[Shared block Y]
+  A["Graph A"] --> A1["Shared block X"]
+  A --> A2["Unique block A"]
+  A --> A3["Shared block Y"]
 
-    B[Graph B] --> B1[Shared block X]
-    B --> B2[Unique block B]
-    B --> B3[Shared block Y]
+  B["Graph B"] --> B1["Shared block X"]
+  B --> B2["Unique block B"]
+  B --> B3["Shared block Y"]
 
     A1 -. matches .-> B1
     A3 -. matches .-> B3
