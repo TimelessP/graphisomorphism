@@ -5,7 +5,7 @@ Use this page when you want fast triage on ELF binaries with graph-structure mat
 ## 0) Enter project folder
 
 ```bash
-cd /home/t/PycharmProjects/graphisomorphism
+cd graphisomorphism
 ```
 
 ## 1) Extract graph from known/baseline sample
