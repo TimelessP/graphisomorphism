@@ -133,7 +133,7 @@ python3 graph_iso.py compare \
 
 Comparison JSON includes:
 - `best_match_size`: largest shared window
-- `fit_ratio_against_min_nodes`: $\text{best\_match\_size} / \min(n_A, n_B)$
+- `fit_ratio_against_min_nodes`: ratio computed as `best_match_size / min(prior_node_count, new_node_count)`
 - `match_count_reported`: number of reported matches
 - `matches[]`: entries like `{ prior_start, new_start, size }`
 
