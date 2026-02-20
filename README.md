@@ -2,6 +2,8 @@
 
 Quick start: [docs/quickstart.md](docs/quickstart.md)
 
+Benchmark guide: [docs/benchmark.md](docs/benchmark.md)
+
 License: MIT (see [LICENSE](LICENSE))
 
 This project helps malware analysts quickly answer:
@@ -181,6 +183,32 @@ Filter to one size only:
 
 ```bash
 ./test-run-examples-multi.sh 14
+```
+
+## Performance benchmark on known samples
+
+Run repeatable timing benchmarks over the included example binaries:
+
+```bash
+python3 benchmark.py --iterations 10 --warmup 2
+```
+
+Benchmark stages per scenario:
+- `extract_pair`: build both graphs from binaries (includes `objdump` + parsing)
+- `compare_best`: default best-size matching
+- `compare_all_sizes`: plural matching mode (`collect_all_sizes=True`)
+
+Scenario targeting examples:
+
+```bash
+python3 benchmark.py --scenario partial
+python3 benchmark.py --scenario multi
+```
+
+Write machine-readable report:
+
+```bash
+python3 benchmark.py --iterations 20 --json-output out/benchmark.json
 ```
 
 ## Suggested malware triage workflow
